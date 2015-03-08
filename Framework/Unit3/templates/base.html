@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="static/blog.css" type="text/css" rel="stylesheet" />
+	
+	<title>Skarding Blog</title>
+</head>
+
+<body>
+	<div id="user" class="login-area">
+		{% if user %}
+			Logged inn as:
+			<a href="/blog/welcome" class="login-link">{{user.name}}</a>
+		{% else %}
+			<a href="/blog/login" class="login-link">Login</a>
+			|
+			<a href="/blog/signup" class="login-link">Signup</a>
+		{% endif %}
+	</div>
+	
+	<a href="/blog" class="main-title">
+		Skarding Blog
+	</a>
+	
+	<div id="content">
+		{% block content %}
+		{% endblock %}
+	</div>
+</body>
+
+</html>

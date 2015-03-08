@@ -1,0 +1,19 @@
+{% extends "blogBase.html" %}
+
+{% block content %}
+		<h2>Welcome {{user.name}}!</h2>
+		<table>
+			<tr>
+				<td>
+					<a href="{{url['newpost']}}" class="NavButton nav-link">Make a new post!</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<br>
+					<a href="{{url['wiki']}}" class="NavButton nav-link">Visit the Wiki!</a>
+				</td>
+			</tr>
+		</table>
+		
+{% endblock %}

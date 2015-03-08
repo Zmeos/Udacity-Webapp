@@ -1,0 +1,17 @@
+INSTUPUnit3.blog
+C:\Users\Joakim\Webapps\skarding-udacity\Framework\Unit3\blog.py
+INFOS:&&2|1|2|0&&1|3|2|0&&2|4|2|3&&1|5|2|0&&2|6|2|5&&2|4|2|5&&2|7|2|5&&1|8|2|0&&2|9|2|8&&2|4|2|8&&1|10|2|0&&2|4|2|10&&1|11|2|0&&2|4|2|11&&1|12|2|0&&2|4|2|12&&1|13|2|0&&2|4|2|13&&3|14|2|0
+MainPage=3
+app=14
+PostHandler=10
+post=7
+get=4
+postToDict=1
+PostJson=11
+BlogJson=12
+render_blog=9
+NewPost=5
+render_newpost=6
+FlushCache=13
+Blog=8
+Unit3.blog=2

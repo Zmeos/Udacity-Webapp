@@ -1,0 +1,39 @@
+'''
+Created on 6. juli 2012
+
+@author: Joakim
+'''
+import webapp2
+from ..Framework.Handler import Handler
+from ..utils import url
+
+class wikimain(Handler):
+    def get(self):
+        self.render("wikiShowPage.html", page='Main')
+        
+class WikiPage(Handler):
+    def get(self, pageName):
+        content = 'Here komst Alex!'
+        self.render("wikiShowPage.html", page=pageName, content=content)
+
+class editPage(Handler):
+    def get(self, pageName):
+        if self.user:
+            content = "Here komst Stuff!"
+            self.render("wikiEditPage.html", page=pageName, content=content)
+        else:
+            self.redirect(url.url['login'])
+    def post(self, pageName):
+        if self.user:
+            content = self.request.get('content')
+            self.redirect(url.url['wiki']+pageName)
+        else:
+            self.redirect(url.url['login'])
+            
+
+PAGE_RE = r'(/(?:[a-zA-Z0-9_-]+/?)*)'
+app = webapp2.WSGIApplication([(url.url['wiki']+r'/?', wikimain),
+                               (url.url['wikiedit']+PAGE_RE, editPage),
+                               (url.url['wiki']+PAGE_RE, WikiPage)
+                               ],
+                              debug=True)

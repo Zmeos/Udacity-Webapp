@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Framework/Unit5/escaping-in-Json.py&apos; to &apos;escapingInJson.py&apos;" description="Rename resource &apos;escaping-in-Json.py&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Unit5/escaping-in-Json.py" name="escapingInJson.py" stamp="1340905784002" updateReferences="true"/>
+</session>

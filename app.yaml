@@ -1,0 +1,53 @@
+application: skarding-udacity
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+  
+- url: /static
+  static_dir: static
+
+
+- url: /
+  script: main.app
+  
+- url: /helloworld/?
+  script: Framework.Framework.helloworld.app
+  
+- url: /unit2/?.*
+  script: Framework.Unit2.Signup.app
+
+- url: /framework/?
+  script: Framework.Framework.framework.app
+  
+- url: /rot13/?
+  script: Framework.Unit2.Rot13.app
+  
+- url: /user/?.*
+  script: Framework.Unit4.Signup.app
+
+- url: /blog/?.*
+  script: Framework.Unit3.blog.app
+  
+- url: /unit4/cookieexample/?
+  script: Framework.Unit4.CookieExample.app
+  
+- url: /unit4/?.*
+  script: Framework.Unit4.Signup.app
+  
+- url: /wiki/?.*
+  script: Framework.Wiki.Wiki.app
+
+- url: /.*
+  script: main.app
+
+libraries:
+- name: webapp2
+  version: "2.5.1"
+- name: jinja2
+  version: latest

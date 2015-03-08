@@ -1,0 +1,162 @@
+body {
+    position: relative;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+
+    width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+    color: #333;
+}
+
+.error{
+	color:red
+}
+
+label , .label{
+	display: block;
+	font-size: 20px;
+}
+
+
+input[type=text] , input[type=password]{
+    width: 300px;
+    font-size: 20px;
+    padding: 2px;
+    font-family: monospace;
+}
+
+textarea {
+  width: 500px;
+  height: 400px;
+  font-size: 17px;
+  font-family: monospace;
+}
+input[type=submit]{
+	font-size:24px;
+}
+
+hr{
+	margin: 20px auto;
+}
+
+.post + .post {
+	margin-top: 20px;
+}
+
+
+.post-heading {
+    position: relative;
+    border-bottom: 3px solid #666;
+}
+
+.post-bottom{
+    position: relative;
+}
+
+.post-user{
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	font-size: 10px;
+	color: gray;
+}
+
+.post-subject , .nav-link{
+	font-weight: bold;
+	font-size: 17px;
+	color: #222;
+	text-decoration: none;
+}
+
+.post-content{
+	margin: 0;
+	width: 800px;
+	font-size: 17px;
+}
+
+.post-date{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	font-weight: bold;
+}
+
+.main-title{
+	display: block;
+	color: #222;
+	font-size: 40px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 30px;
+	text-decoration: none;
+
+}
+
+.qTime{
+	position absolute;
+	bottom: 0px;
+	right: 0px;
+	color: gray;
+	font-size: 10px;
+	margin-top:30px;
+}
+.login-area, .top-area{
+	position absolute:
+	top: 0px;
+	right: 0px;
+	color: gray;
+	font-size: 15px;
+	text-align:right;
+	margin-left:20px;
+}
+
+.login-link, .top-link{
+	text-decoration: none;
+	color: gray;
+}
+
+.login-link:hover, .top-link:hover{
+	text-decoration: underline;
+	color: gray;
+}
+
+.NavButton {
+	background: #eee;
+	padding: 3px 10px;
+	border: 2px solid #444;
+	border-radius: 25px;
+}
+
+.NavButton + .NavButton {
+	margin-top: 7px;
+}
+.NavButton:hover {
+	box-shadow: 2px 2px 10px #888;
+}
+
+.historypost + .historypost{
+	margin-top: 9px;
+}
+.historypost {
+	height: 40px;
+	font-size: 17px;
+}
+.historypostEven{
+	background-color: #eee;
+}
+.historypostOdd{
+	background-color: white;	
+}
+
+.historyDate {
+	font-weight: bold;
+}
+.historyContent{
+	margin-left: 10px;
+	text-align: center;
+}
+.historyLinks{
+	position: absolute;
+	right: 12px;
+}

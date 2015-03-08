@@ -1,0 +1,17 @@
+INSTUPFramework.Handler
+C:\Users\Joakim\Webapps\skarding-udacity\Framework\Framework\Handler.py
+INFOS:&&3|1|2|0&&3|3|2|0&&1|4|2|0&&2|5|2|4&&2|6|2|4&&2|7|2|4&&2|8|2|4&&2|9|2|4&&2|10|2|4&&2|11|2|4&&2|12|2|4&&3|13|2|14
+read_secure_cookie=9
+jinja_env=3
+set_secure_cookie=8
+render=7
+template_dir=1
+logout=11
+Handler.initialize=14
+Framework.Handler=2
+write=5
+login=10
+render_str=6
+user=13
+Handler=4
+initialize=12

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="/static/blog.css" type="text/css" rel="stylesheet" />
+	
+	<title>{% block title %}{% endblock %}</title>
+	{% block header %} {% endblock %}
+</head>
+
+<body>
+	<div id="top" class="top-area">
+		<span class="top-area">
+		{% block top_area %}{% endblock %}
+		</span>
+		<span class="login-area">
+			{% if user %}
+				<a href="{{url['welcome']}}" class="login-link">{{user.name}}</a>
+				(<a href="{{url['logout']}}" class="login-link">Logout</a>)
+			{% else %}
+				<a href="{{url['login']}}" class="login-link">Login</a>
+				|
+				<a href="{{url['signup']}}" class="login-link">Signup</a>
+			{% endif %}
+		</span>
+	</div>
+	
+	{% block body %}
+	{% endblock %}
+</body>
+
+</html>

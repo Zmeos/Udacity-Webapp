@@ -1,0 +1,27 @@
+<div class="post">
+  <div class="post-heading">
+  	{% if user %}
+    <a href="{{url['blog']}}/{{post.key().id()}}-{{user.key().id()}}" class="post-subject">{{post.subject}}</a>
+	{% else %}
+    <a href="{{url['blog']}}/{{post.key().id()}}-0" class="post-subject">{{post.subject}}</a>
+	{% endif %}
+
+    <div class="post-date">
+      {{post.created.strftime("%d %b, %Y")}}
+    </div>
+  </div>
+
+  <div class="post-content">
+    {{post._render_text | safe }}
+  </div>
+  
+  <div class= "post-bottom">
+  	<div class= "post-user">
+  		Submitted by: 	{% if user %}
+  							{{user.name}}
+  						{% else %}
+  							Anonymous
+  						{% endif %}
+  	</div>
+  </div>
+</div>

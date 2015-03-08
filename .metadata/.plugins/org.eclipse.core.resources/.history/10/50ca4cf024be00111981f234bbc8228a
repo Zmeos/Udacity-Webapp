@@ -1,0 +1,89 @@
+'''
+Created on 24. juni 2012
+
+@author: Joakim
+'''
+import webapp2
+import os
+import jinja2
+
+from google.appengine.ext import db
+
+template_dir = os.path.join(os.path.dirname(__file__), 'templates')
+jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), 
+                               autoescape = True)
+
+
+class Handler(webapp2.RequestHandler):
+    def write(self, *a,**kw):
+        self.response.out.write(*a,**kw)
+    
+    def render_str(self, template, **params):
+        t = jinja_env.get_template(template)
+        return t.render(params)
+    
+    def render(self, template, **kw):
+        self.write(self.render_str(template, **kw))
+
+class Blogpost(db.Model):
+    subject = db.StringProperty(required = True)
+    content = db.TextProperty(required = True)
+    created = db.DateTimeProperty(auto_now_add = True)
+    
+
+
+class MainPage(Handler):
+    def get(self):
+        self.render("test.html")
+
+        
+class NewPost(Handler):
+    def render_newpost(self, subject="", content="", error=""):
+        self.render("newpost.html", error = error, subject = subject, content=content)
+    
+    def get(self):
+        self.render_newpost()
+    def post(self):
+        subject = self.request.get("subject")
+        content = self.request.get("content")
+        
+        if subject and content:
+            b = Blogpost(subject=subject, content=content)
+            b.put()
+            
+            post_id = b.key().id()
+            self.redirect("/blog/%s"%post_id)
+
+        else:
+            error = "we need both Subject and Content!"
+            self.render_newpost(error = error, subject = subject, content=content)
+
+class Blog(Handler):
+    def render_blog(self):
+        blogposts = db.GqlQuery("SELECT * FROM Blogpost ORDER BY created DESC")
+        
+        #self.render("blog.html")
+        self.render("blog.html", blogposts=blogposts)
+    def get(self):
+        self.render_blog()
+        
+class PostHandler(Handler):
+    def get(self, blog_id):
+        post = Blogpost.get_by_id(int(blog_id))
+        if post:
+            self.render("blogpost.html", post = post)
+        else:
+            self.write("<h1>This post does not exist!</h1>")
+        #self.write("Post comming here soon! Meanwhile you can look at your post id: %s"%blog_id)
+
+app = webapp2.WSGIApplication([
+                               webapp2.Route('/', handler=Blog, name='blog'), #just a test of the route function
+                               ('/blog/newpost', NewPost),
+                               ('/blog', Blog),
+                               (r'/blog/(\d+)', PostHandler)],
+                              debug=True)
+"""app = webapp2.WSGIApplication([('/', MainPage),
+                               ('/newpost', NewPost),
+                               ('/blog', Blog)],
+                              debug=True)
+"""

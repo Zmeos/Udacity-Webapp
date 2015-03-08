@@ -1,0 +1,18 @@
+{% extends "wikiBase.html" %}
+
+{% block content %}
+	{% set i = 0 %}
+	{% for page in history %}
+		{% set i = i + 1 %}
+		<div class="historypost {{ loop.cycle('historypostOdd', 'historypostEven') }}">
+			<span class="historyDate">{{page.created.strftime("%d %b %Y")}}</span>
+			<span class="historyContent">{{page.content[:100]}}...</span>
+			<span class="historyLinks">
+			<a href="{{url['wiki']+pageName}}/?v={{i}}" class="top-link">view</a>
+			{% if user %}
+				<a href="{{url['wikiedit']+pageName}}/?v={{i}}" class="top-link">edit</a>
+			{% endif %}
+			</span>
+		</div>
+	{% endfor %}
+{% endblock %}

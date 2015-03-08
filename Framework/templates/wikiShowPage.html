@@ -1,0 +1,15 @@
+{% extends "wikiBase.html" %}
+
+{% block top_area %}
+	{% if user %}
+			<a href="{{url['wikiedit']+page}}" class="top-link">edit</a>
+			|
+			<a href="{{url['wikihistory']+page}}" class="top-link">history</a>
+		{% else %}
+			<a href="{{url['wikihistory']+page}}" class="top-link">history</a>
+		{% endif %}
+{% endblock %}
+
+{% block content %}
+	{{content | safe}}
+{% endblock %}

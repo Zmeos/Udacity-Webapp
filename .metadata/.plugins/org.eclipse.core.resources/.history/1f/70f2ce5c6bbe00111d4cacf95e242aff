@@ -1,0 +1,8 @@
+<h1>Signup</h1>
+<form method="POST">
+    <div><label>Username<input type="text" name="username" value="%(username)s"></label>        <label style="color: red">%(usernameError)s</label>        </div>
+    <div><label>Password<input type="password" name="password" value="%(password)s"></label>        <label style="color: red">%(passwordError)s</label>        </div>
+    <div><label>Verify Password<input type="password" name="verify"value="%(verify)s"></label>      <label style="color: red">%(verifyError)s</label>            </div>
+    <div><label>Email(optional)<input type="text" name="email"value="%(email)s"></label>        <label style="color: red">%(emailError)s</label>            </div>
+    <input type="submit">
+</form>

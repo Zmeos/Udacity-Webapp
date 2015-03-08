@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+<a href="{{url['blog']}}" class="main-title">
+		Skarding Blog
+	</a>
+	
+	<div id="content">
+		{% block content %}
+		{% endblock content%}
+	</div>
+{% endblock body %}

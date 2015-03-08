@@ -1,0 +1,55 @@
+'''
+Created on 1. juli 2012
+
+@author: Joakim
+'''
+import logging
+
+from datetime import datetime, timedelta
+from google.appengine.ext import db
+from google.appengine.api import memcache
+
+from ..utils.finalVars import finalVars
+
+
+class Blogpost(db.Model):
+    subject = db.StringProperty(required = True)
+    content = db.TextProperty(required = True)
+    created = db.DateTimeProperty(auto_now_add = True)
+    
+    @classmethod
+    def register(cls, subject, content):
+        return cls(subject=subject, content=content)
+    
+    @classmethod
+    def getBlogposts(cls,key,update=False):#blogposts or blogpost
+        posts, age = cls.age_get(key)
+        if posts is None or update:
+            logging.error('DB Query!')
+            if key==finalVars.mc_blogkey: #check if blogfront
+                query = db.GqlQuery("SELECT * FROM Blogpost ORDER BY created DESC LIMIT 10")
+                posts = list(query)
+            else: #must be permalink
+                posts = Blogpost.get_by_id(int(key))
+                if posts is None:
+                    return None, 0 # if there is no such post we do not want to cache it   
+            cls.age_set(key, posts)
+        return posts, age
+    
+    @classmethod
+    def age_set(cls, key, val):
+        save_time = datetime.utcnow()
+        memcache.set(key, (val,save_time))
+    @classmethod
+    def age_get(cls, key):
+        r = memcache.get(key)
+        if r:
+            val,save_time = r
+            age = (datetime.utcnow() - save_time).total_seconds()
+        else:
+            val , age = None, 0
+        return val, age
+    
+    def flushCache(self):
+        memcache.flush_all()
+

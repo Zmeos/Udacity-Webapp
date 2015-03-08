@@ -1,0 +1,15 @@
+{% extends "wikiBase.html" %}
+
+{% block top_area %}
+	<a href="{{url['wiki']+page}}" class="top-link">view</a>
+	|
+	<a href="{{url['wikihistory']+page}}" class="top-link">history</a>
+{% endblock %}
+
+{% block content %}
+	<form method="post">
+		<textarea name="content">{{content}}</textarea>
+		<br>
+		<input type="submit">
+	</form>
+{% endblock %}

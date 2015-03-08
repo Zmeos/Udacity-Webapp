@@ -1,0 +1,55 @@
+{% extends "blogBase.html" %}
+
+{% block content %}
+
+<h1>Signup</h1>
+<form method="POST">
+	<table>
+    	<tr>
+    		<td class="label">
+    			Username
+    		</td>        
+    		<td>
+    			<input type="text" name="username" value="{{username}}">
+    		</td>        
+    		<td>
+    			<label style="color: red">{{usernameError}}</label>        
+    		</td>
+    	</tr>
+    	<tr>
+    		<td class="label">
+    			Password
+    		</td>        
+    		<td>
+    			<input type="password" name="password" value="{{password}}">
+    		</td>        
+    		<td>
+    			<label style="color: red">{{passwordError}}</label>        
+    		</td>
+    	</tr>
+    	<tr>
+    		<td class="label">
+    			Verify Password
+    		</td>        
+    		<td>
+    			<input type="password" name="verify"value="{{verify}}">
+    		</td>      
+    		<td>
+    			<label style="color: red">{{verifyError}}</label>            
+    		</td>
+    	</tr>
+    	<tr>
+    		<td class="label">
+    			Email(optional)
+    		</td>        
+    		<td>
+    			<input type="text" name="email"value="{{email}}">
+    		</td>        
+    		<td>
+    			<label style="color: red">{{emailError}}</label>            
+    		</td>
+    	</tr>
+    </table>
+    <input type="submit">
+</form>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+	
+	{% for post in blogposts %}
+		{{post.render() | safe }}
+    	<br><br>
+	{% endfor %}
+	<div class="qTime">Queried {{timeSinceQ}} seconds ago</div>
+{% endblock %}

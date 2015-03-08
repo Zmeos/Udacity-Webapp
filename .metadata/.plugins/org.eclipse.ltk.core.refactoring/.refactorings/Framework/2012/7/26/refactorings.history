@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Framework/utils/FinalVars.py&apos; to &apos;finalVars.py&apos;" description="Rename resource &apos;FinalVars.py&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="utils/FinalVars.py" name="finalVars.py" stamp="1341122108675" updateReferences="true"/>
+</session>

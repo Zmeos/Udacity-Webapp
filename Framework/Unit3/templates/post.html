@@ -1,0 +1,19 @@
+<div class="post">
+  <div class="post-heading">
+    <a href="/blog/{{post.key().id()}}" class="post-subject">{{post.subject}}</a>
+
+    <div class="post-date">
+      {{post.created.strftime("%b %d, %Y")}}
+    </div>
+  </div>
+
+  <div class="post-content">
+    {{post._render_text | safe}}
+  </div>
+  
+  <div class= "post-bottom">
+  	<div class= "post-user">
+  		Submitted by: some User
+  	</div>
+  </div>
+</div>
