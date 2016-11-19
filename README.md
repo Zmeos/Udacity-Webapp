@@ -1,3 +1,2 @@
 # Udacity-Webapp
-Simple Blog and Wiki created for fun through the Udacity web app course.
-The blog is found here: http://skarding-udacity.appspot.com/blog
+A simple blog and wiki I made as part of Udacity's CS253 Web development summer 2012. It is currently deactivated but when active can be found here: http://skarding-udacity.appspot.com/blog
